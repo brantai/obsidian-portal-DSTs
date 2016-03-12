@@ -1,0 +1,164 @@
+.ds_fantasydice {
+	font-family: Arial, Helvetica, sans-serif;
+	color: black;
+	line-height: 14px;
+	font-size: 12px;
+}
+
+.ds_fantasydice span {
+	display:block;
+	height:100%;
+	width:100%;
+	overflow:auto;
+}
+
+.ds_fantasydice .lang_table span {
+	display:inline;
+}
+
+.ds_fantasydice a {
+	color: black;
+	text-decoration: none;
+}
+
+.ds_fantasydice table {
+	margin: 0;
+	border-collapse: separate;
+	border-spacing: 2px;
+	padding: 2px;
+
+}
+.ds_fantasydice h1 {
+	color: black;
+	font-size: 0.875em;
+	font-style: italic;
+	font-weight: bold;
+}
+
+.ds_fantasydice .underlined {
+	border-bottom: 1px solid black;
+}
+.ds_fantasydice .blackbg {
+	background: black;
+	color: white;
+	text-align: left;
+}
+.ds_fantasydice .skills {
+	margin: 20px;
+}
+
+.ds_fantasydice .omnibox {
+	width: 730px;
+	border: 1px solid;
+	margin-left: 2px;
+	margin-right: 2px;
+}
+
+.ds_fantasydice .content {
+	width: 450px;
+	padding: 0;
+	margin-right: 20px;
+	margin-left: 2px;
+	margin-top: 2px;
+	margin-bottom: 2px;
+	float: right;
+	border: none;
+}
+
+.ds_fantasydice .armor {
+	width: 300px;
+	padding: 0;
+	margin-right: 20px;
+	margin-left: 2px;
+	margin-top: 2px;
+	margin-bottom: 2px;
+	float: right;
+	border: none;
+}
+
+.ds_fantasydice div.armor table {
+	text-align: center;
+}
+
+.ds_fantasydice .equipment{
+	margin-left: 20px;
+	margin-right: 20px;
+	margin-top: 2px;
+	margin-bottom: 2px;
+}
+
+.ds_fantasydice div.content table {
+	width: 100%;
+}
+
+.ds_fantasydice .characteristics td {
+	border-bottom: 1px solid black;
+}
+
+.ds_fantasydice .aspirations td {
+	border-bottom: 1px solid black;
+}
+
+.ds_fantasydice .path td {
+	border-bottom: 1px solid black;
+}
+
+.ds_fantasydice .left_box {
+	width: 230px;
+	padding: 0px;
+	margin-left: 20px;
+	margin-right: 2px;
+	margin-top: 2px;
+	margin-bottom: 2px;
+	float: left;
+	border: none;
+}
+
+.ds_fantasydice .p2_left_box {
+	width: 380px;
+	margin-left: 20px;
+	margin-right: 2px;
+	margin-top: 2px;
+	margin-bottom: 2px;
+	float: left;
+}
+
+.ds_fantasydice .lang_table table {
+	border-collapse: collapse;
+}
+
+.ds_fantasydice .lang_table tr:nth-child(odd)>td {
+	border-bottom: 1px solid black;
+}
+
+.ds_fantasydice .basic_info {
+	margin-left: 20px;
+	margin-right: 20px;
+	margin-top: 2px;
+	margin-bottom: 2px;
+}
+
+.ds_fantasydice .weapons tr {
+	border-bottom: 1px solid black;
+}
+
+.ds_fantasydice .box {
+	border: 2px solid black;
+	text-align: center;
+}
+
+.ds_fantasydice div.attributes td:nth-child(2n+2) {
+	border: 1px solid black;
+	text-align: center;
+}
+
+.ds_fantasydice div.attributes td:nth-child(3n+3) {
+	border: 2px dotted black;
+	text-align: center;
+}
+
+.ds_fantasydice div.attributes td:nth-child(2n+4) {
+	  border: 3px solid black;
+      text-align: center;
+	  font-weight: bold;
+}

@@ -1,0 +1,936 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+  <title>DST Dev Kit</title>
+  <script type="text/javascript" src="javascripts/jquery-1.3.2.min.js"></script>
+  <script type="text/javascript" src="javascripts/jquery.jeditable-1.7.1.js"></script>
+  <script type="text/javascript" src="javascripts/namespace.js"></script>
+
+  <!-- This is where we do our magic. Take a look to get a better understanding of how to write javascript for your DST. -->
+  <script type="text/javascript" src="http://www.obsidianportal.com/javascripts/characters.js"></script>
+
+  <!-- Load the example data. Modify this file to make sample data for your chosen system. -->
+  <script type="text/javascript" src="example_data.js"></script>
+
+  <!-- Load the CSS for the DST, replace with your own! -->
+  <link href="sheet.css" media="screen" rel="stylesheet" type="text/css" />
+
+  <!-- Load the JS for the DST, replace with your own! -->
+  <script type="text/javascript" src="sheet.js"></script>
+
+</head>
+<body>
+  <div class="dynamic_sheet_container">
+
+    <!-- Every dynamic sheet will be surrounded by a div that has the class of "ds_DST_SLUG". In this example, the slug for my DST is 'minimal4e' -->
+    <div id="dynamic_sheet_999" class="dynamic_sheet ds_fantasydice editable">
+      <!-- This is inserted automatically. Ignore it... -->
+      <span style="display:none;" class="dst_slug">fantasydice</span>
+      <!--
+      Below is your HTML template.
+      Copy ONLY this section into the HTML Template textarea on Obsidian Portal. Do not copy any of the
+      surrounding HTML!
+      -->
+      <div class="omnibox">
+      <div class="basic_info">
+          <table width="100%">
+              <tr>
+                  <td class="underlined">
+                      <span class="dsf dsf_name" title="Name"></span>
+                  </td>
+                  <td class="underlined">
+                      <span class="dsf dsf_player" title="Player"></span>
+                  </td>
+                  <td class="underlined" colspan="2">
+                      <span class="dsf dsf_campaign" title="Campaign"></span>
+                  </td>
+              </tr>
+             <tr>
+               <td><h1>Name</h1></td>
+               <td><h1>Player</h1></td>
+               <td colspan="2"><h1>Campaign</h1></td>
+             </tr>
+             <tr>
+             <td class="underlined">
+                 <span class="dsf dsf_people" title="People"></span>
+             </td>
+             <td class="underlined">
+                 <span class="dsf dsf_occupation" title="Occupation"></span>
+             </td>
+             <td class="underlined">
+                 <span class="dsf dsf_gender" title="Gender"></span>
+             </td>
+             <td class="underlined">
+                 <span class="dsf dsf_age" title="Age"></span>
+             </td>
+            </tr>
+            <tr>
+                <td><h1>People</h1></td>
+                <td><h1>Occupation</h1></td>
+                <td><h1>Gender</h1></td>
+                <td><h1>Age</h1></td>
+            </tr>
+              <tr>
+                <td class="underlined">
+                    <span class="dsf dsf_traits" title="Traits"></span>
+                </td>
+                <td class="underlined">
+                    <span class="dsf dsf_wealth" title="Wealth"></span>
+                </td>
+                <td class="underlined">
+                    <span class="dsf dsf_height" title="Height"></span>
+                </td>
+                <td class="underlined">
+                    <span class="dsf dsf_weight" title="Weight"></span>
+                </td>
+              </tr>
+              <tr>
+                <td><h1>Traits</h1></td>
+                <td><h1>Wealth</h1></td>
+                <td><h1>Height</h1></td>
+                <td><h1>Weight</h1></td>
+              </tr>
+          </table>
+      </div>
+
+      <div class="left_box">
+        <div  class="attributes">
+          <table width="100%">
+              <tr>
+                  <td class="blackbg" colspan="4">Ability Scores</td>
+              </tr>
+              <tr>
+                  <td>
+                      <span>Strength</span>
+                  </td>
+                  <td>
+                      <span class="dsf ability_score_base dsf_strength_base" title="Base Score"></span>
+                  </td>
+                  <td>
+                      <span class="dsf ability_score_mod dsf_strength_mod" title="Modifier"></span>
+                  </td>
+                  <td>
+                      <span class="dsf ability_score_total dsf_strength_total" title="Total Score"></span>
+                  </td>
+              </tr>
+              <tr>
+                  <td>
+                      <span>Agility</span>
+                  </td>
+                  <td>
+                      <span class="dsf ability_score_base dsf_agility_base" title="Base Score"></span>
+                  </td>
+                  <td>
+                      <span class="dsf ability_score_mod dsf_agility_mod" title="Modifier"></span>
+                  </td>
+                  <td>
+                      <span class="dsf ability_score_total dsf_agility_total" title="Total Score"></span>
+                  </td>
+              </tr>
+              <tr>
+                  <td>
+                      <span>Dexterity</span>
+                  </td>
+                  <td>
+                      <span class="dsf ability_score_base dsf_dexterity_base" title="Base Score"></span>
+                  </td>
+                  <td>
+                      <span class="dsf ability_score_mod dsf_dexterity_mod" title="Modifier"></span>
+                  </td>
+                  <td>
+                      <span class="dsf ability_score_total dsf_dexterity_total" title="Total Score"></span>
+                  </td>
+              </tr>
+              <tr>
+                  <td>
+                      <span>Sight</span>
+                  </td>
+                  <td>
+                      <span class="dsf ability_score_base dsf_sight_base" title="Base Score"></span>
+                  </td>
+                  <td>
+                      <span class="dsf ability_score_mod dsf_sight_mod" title="Modifier"></span>
+                  </td>
+                  <td>
+                      <span class="dsf ability_score_total dsf_sight_total" title="Total Score"></span>
+                  </td>
+              </tr>
+              <tr>
+                  <td>
+                      <span>Cunning</span>
+                  </td>
+                  <td>
+                      <span class="dsf ability_score_base dsf_cunning_base" title="Base Score"></span>
+                  </td>
+                  <td>
+                      <span class="dsf ability_score_mod dsf_cunning_mod" title="Modifier"></span>
+                  </td>
+                  <td>
+                      <span class="dsf ability_score_total dsf_cunning_total" title="Total Score"></span>
+                  </td>
+              </tr>
+              <tr>
+                  <td>
+                      <span>Widsom</span>
+                  </td>
+                  <td>
+                      <span class="dsf ability_score_base dsf_wisdom_base" title="Base Score"></span>
+                  </td>
+                  <td>
+                      <span class="dsf ability_score_mod dsf_wisdom_mod" title="Modifier"></span>
+                  </td>
+                  <td>
+                      <span class="dsf ability_score_total dsf_wisdom_total" title="Total Score"></span>
+                  </td>
+              </tr>
+              <tr>
+                  <td>
+                      <span>Demon</span>
+                  </td>
+                  <td>
+                      <span class="dsf ability_score_base dsf_demon_base" title="Base Score"></span>
+                  </td>
+                  <td>
+                      <span class="dsf ability_score_mod dsf_demon_mod" title="Modifier"></span>
+                  </td>
+                  <td>
+                      <span class="dsf ability_score_total dsf_demon_total" title="Total Score"></span>
+                  </td>
+              </tr>
+              <tr>
+                  <td>
+                      <span>Spirit</span>
+                  </td>
+                  <td>
+                      <span class="dsf ability_score_base dsf_spirit_base" title="Base Score"></span>
+                  </td>
+                  <td>
+                      <span class="dsf ability_score_mod dsf_spirit_mod" title="Modifier"></span>
+                  </td>
+                  <td>
+                      <span class="dsf ability_score_total dsf_spirit_total" title="Total Score"></span>
+                  </td>
+              </tr>
+            </table>
+          </div>
+            <table width="100%">
+              <tr>
+                  <td colspan="2" class="underlined">
+                      <span class="dsf experience dsf_experience"></span>
+                  </td>
+                  <td colspan="2" class="underlined">
+                      <span class="dsf hero_points dsf_hero_points"></span>
+                  </td>
+              </tr>
+              <tr>
+                <td colspan="2"><h1>Experience</h1></td>
+                <td colspan="2"><h1>Hero Points</h1></td>
+            </tr>
+            </table>
+              <table class="lang_table" width="100%">
+              <tr>
+                  <td class="blackbg" colspan="4">Languages</td>
+              </tr>
+              <tr>
+                  <td colspan="3">
+                      <span class="dsf dsf_lang1" title="Language"></span>
+                  </td>
+                  <td>
+                      <span class="dsf dsf_lang1_roll" title="Roll"></span>
+                  </td>
+              </tr>
+              <tr>
+                  <td colspan="2">
+                      <span class="dsf dsf_lang1_speak checkbox"></span>
+                      <span>Speak</span>
+                  </td>
+                  <td colspan="2">
+                      <span class="dsf dsf_lang1_write checkbox"></span>
+                      <span>Write</span>
+                  </td>
+              </tr>
+              <tr>
+                  <td colspan="3">
+                      <span class="dsf dsf_lang2" title="Language"></span>
+                  </td>
+                  <td>
+                      <span class="dsf dsf_lang2_roll" title="Roll"></span>
+                  </td>
+              </tr>
+              <tr>
+                  <td colspan="2">
+                      <span class="dsf dsf_lang2_speak checkbox"></span>
+                      <span>Speak</span>
+                  </td>
+                  <td colspan="2">
+                      <span class="dsf dsf_lang2_write checkbox"></span>
+                      <span>Write</span>
+                  </td>
+              </tr>
+              <tr>
+                  <td colspan="3">
+                      <span class="dsf dsf_lang3" title="Language"></span>
+                  </td>
+                  <td>
+                      <span class="dsf dsf_lang3_roll" title="Roll"></span>
+                  </td>
+              </tr>
+              <tr>
+                  <td colspan="2">
+                      <span class="dsf dsf_lang3_speak checkbox"></span>
+                      <span>Speak</span>
+                  </td>
+                  <td colspan="2">
+                      <span class="dsf dsf_lang3_write checkbox"></span>
+                      <span>Write</span>
+                  </td>
+              </tr>
+              <tr>
+                  <td colspan="3">
+                      <span class="dsf dsf_lang4" title="Language"></span>
+                  </td>
+                  <td>
+                      <span class="dsf dsf_lang4_roll" title="Roll"></span>
+                  </td>
+              </tr>
+              <tr>
+                  <td colspan="2">
+                      <span class="dsf dsf_lang4_speak checkbox"></span>
+                      <span>Speak</span>
+                  </td>
+                  <td colspan="2">
+                      <span class="dsf dsf_lang4_write checkbox"></span>
+                      <span>Write</span>
+                  </td>
+              </tr>
+              <tr>
+                  <td colspan="3">
+                      <span class="dsf dsf_lang5" title="Language"></span>
+                  </td>
+                  <td>
+                      <span class="dsf dsf_lang5_roll" title="Roll"></span>
+                  </td>
+              </tr>
+              <tr>
+                  <td colspan="2">
+                      <span class="dsf dsf_lang5_speak checkbox"></span>
+                      <span>Speak</span>
+                  </td>
+                  <td colspan="2">
+                      <span class="dsf dsf_lang5_write checkbox"></span>
+                      <span>Write</span>
+                  </td>
+              </tr>
+          </table>
+  	  </div>
+            <div class="content">
+      <table width="100%">
+          <tr>
+              <td class="blackbg" colspan="5">Relationships</td>
+          </tr>
+          <tr>
+              <td class="underlined" colspan="5">
+                  <span class="dsf dsf_enemy" title="Enemy"></span>
+              </td>
+          </tr>
+          <tr>
+              <td><h1>Enemy</h1></td>
+          </tr>
+          <tr>
+              <td class="underlined" colspan="5">
+                  <span class="dsf dsf_ally" title="Ally"></span>
+              </td>
+          </tr>
+          <tr>
+              <td><h1>Ally</h1></td>
+          </tr>
+      </table>
+      <table class="characteristics">
+          <tr>
+              <td class="blackbg" colspan="5">Characteristics</td>
+          </tr>
+          <tr>
+              <td>
+                  <span class="dsf dsf_characteristics1" title="Positive Characteristic"></span>
+              </td>
+              <td>
+                  <span class="dsf dsf_characteristics2" title="Negative Characteristic"></span>
+              </td>
+          </tr>
+          <tr>
+              <td>
+                  <span class="dsf dsf_characteristics3" title="Positive Characteristic"></span>
+              </td>
+              <td>
+                  <span class="dsf dsf_characteristics4" title="Negative Characteristic"></span>
+              </td>
+          </tr>
+          <tr>
+              <td>
+                  <span class="dsf dsf_characteristics5" title="Positive Characteristic"></span>
+              </td>
+              <td>
+                  <span class="dsf dsf_characteristics6" title="Negative Characteristic"></span>
+              </td>
+          </tr>
+        </table>
+        <table class="aspirations">
+          <tr>
+              <td class="blackbg">Aspirations</td>
+              <th>Trigger Ammo:</th>
+              <th class="box">
+                  <span class="dsf dsf_trigger_ammmo"></span>
+              </th>
+              <th>Trigger Max:</th>
+              <th class="box">
+                  <span class="dsf dsf_trigger_max"></span>
+              </th>
+          </tr>
+          <tr>
+              <td colspan="5">
+                  <span class="dsf dsf_aspiration_1" title="Aspirations"></span>
+              </td>
+          </tr>
+          <tr>
+              <td colspan="5">
+                  <span class="dsf dsf_aspiration_2" title="Aspirations"></span>
+              </td>
+          </tr>
+          <tr>
+              <td colspan="5">
+                  <span class="dsf dsf_aspiration_3" title="Aspirations"></span>
+              </td>
+          </tr>
+          <tr>
+              <td colspan="5">
+                  <span class="dsf dsf_aspiration_4" title="Aspirations"></span>
+              </td>
+          </tr>
+      </table>
+      <table class="path">
+          <tr>
+              <td  class="blackbg">Path</td>
+              <td colspan="3">
+                  <span class="dsf dsf_path" title="Current Path"></span>
+              </td>
+          </tr>
+          <tr>
+            <td>
+              <span class="dsf dsf_path_1" title="Path Ability"></span>
+            </td>
+            <td>
+              <span class="dsf dsf_path_desc_1" title="Path Ability Description"></span>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <span class="dsf dsf_path_2" title="Path Ability"></span>
+            </td>
+            <td>
+              <span class="dsf dsf_path_desc_2" title="Path Ability Description"></span>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <span class="dsf dsf_path_3" title="Path Ability"></span>
+            </td>
+            <td>
+              <span class="dsf dsf_path_desc_3" title="Path Ability Description"></span>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <span class="dsf dsf_path_4" title="Path Ability"></span>
+            </td>
+            <td>
+              <span class="dsf dsf_path_desc_4" title="Path Ability Description"></span>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <span class="dsf dsf_path_5" title="Path Ability"></span>
+            </td>
+            <td>
+              <span class="dsf dsf_path_desc_5" title="Path Ability Description"></span>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <span class="dsf dsf_path_6" title="Path Ability"></span>
+            </td>
+            <td>
+              <span class="dsf dsf_path_desc_6" title="Path Ability Description"></span>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <span class="dsf dsf_path_7" title="Path Ability"></span>
+            </td>
+            <td>
+              <span class="dsf dsf_path_desc_7" title="Path Ability Description"></span>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <span class="dsf dsf_path_8" title="Path Ability"></span>
+            </td>
+            <td>
+              <span class="dsf dsf_path_desc_8" title="Path Ability Description"></span>
+            </td>
+          </tr>
+      </table>
+      </div>
+      <div class="skills">
+          <table width="100%">
+		  <tr>
+			  <td class="blackbg">Skill</td>
+			  <td class="blackbg">Specialties</td>
+			  <td class="blackbg">Attribute</td>
+			  <td class="blackbg">Roll</td>
+			  <td class="blackbg">Average</td>
+		  </tr>
+		  <tr>
+			  <td class="underlined"><span class="dsf dsf_skill1_name"></span></td>
+			  <td class="underlined"><span class="dsf dsf_skill1_specialties"></span></td>
+			  <td class="underlined"><span class="dsf dsf_skill1_attribute"></span></td>
+			  <td class="underlined"><span class="dsf dsf_skill1_roll"></span></td>
+			  <td class="underlined"><span class="dsf dsf_skill1_avg"></span></td>
+		  </tr>
+          <tr>
+              <td class="underlined"><span class="dsf dsf_skill2_name"></span></td>
+              <td class="underlined"><span class="dsf dsf_skill2_specialties"></span></td>
+              <td class="underlined"><span class="dsf dsf_skill2_attribute"></span></td>
+              <td class="underlined"><span class="dsf dsf_skill2_roll"></span></td>
+              <td class="underlined"><span class="dsf dsf_skill2_avg"></span></td>
+          </tr>
+          <tr>
+              <td class="underlined"><span class="dsf dsf_skill3_name"></span></td>
+              <td class="underlined"><span class="dsf dsf_skill3_specialties"></span></td>
+              <td class="underlined"><span class="dsf dsf_skill3_attribute"></span></td>
+              <td class="underlined"><span class="dsf dsf_skill3_roll"></span></td>
+              <td class="underlined"><span class="dsf dsf_skill3_avg"></span></td>
+          </tr>
+          <tr>
+              <td class="underlined"><span class="dsf dsf_skill4_name"></span></td>
+              <td class="underlined"><span class="dsf dsf_skill4_specialties"></span></td>
+              <td class="underlined"><span class="dsf dsf_skill4_attribute"></span></td>
+              <td class="underlined"><span class="dsf dsf_skill4_roll"></span></td>
+              <td class="underlined"><span class="dsf dsf_skill4_avg"></span></td>
+          </tr>
+          <tr>
+              <td class="underlined"><span class="dsf dsf_skill5_name"></span></td>
+              <td class="underlined"><span class="dsf dsf_skill5_specialties"></span></td>
+              <td class="underlined"><span class="dsf dsf_skill5_attribute"></span></td>
+              <td class="underlined"><span class="dsf dsf_skill5_roll"></span></td>
+              <td class="underlined"><span class="dsf dsf_skill5_avg"></span></td>
+          </tr>
+          <tr>
+              <td class="underlined"><span class="dsf dsf_skill6_name"></span></td>
+              <td class="underlined"><span class="dsf dsf_skill6_specialties"></span></td>
+              <td class="underlined"><span class="dsf dsf_skill6_attribute"></span></td>
+              <td class="underlined"><span class="dsf dsf_skill6_roll"></span></td>
+              <td class="underlined"><span class="dsf dsf_skill6_avg"></span></td>
+          </tr>
+          <tr>
+              <td class="underlined"><span class="dsf dsf_skill7_name"></span></td>
+              <td class="underlined"><span class="dsf dsf_skill7_specialties"></span></td>
+              <td class="underlined"><span class="dsf dsf_skill7_attribute"></span></td>
+              <td class="underlined"><span class="dsf dsf_skill7_roll"></span></td>
+              <td class="underlined"><span class="dsf dsf_skill7_avg"></span></td>
+          </tr>
+          <tr>
+              <td class="underlined"><span class="dsf dsf_skill8_name"></span></td>
+              <td class="underlined"><span class="dsf dsf_skill8_specialties"></span></td>
+              <td class="underlined"><span class="dsf dsf_skill8_attribute"></span></td>
+              <td class="underlined"><span class="dsf dsf_skill8_roll"></span></td>
+              <td class="underlined"><span class="dsf dsf_skill8_avg"></span></td>
+          </tr>
+          <tr>
+              <td class="underlined"><span class="dsf dsf_skill9_name"></span></td>
+              <td class="underlined"><span class="dsf dsf_skill9_specialties"></span></td>
+              <td class="underlined"><span class="dsf dsf_skill9_attribute"></span></td>
+              <td class="underlined"><span class="dsf dsf_skill9_roll"></span></td>
+              <td class="underlined"><span class="dsf dsf_skill9_avg"></span></td>
+          </tr>
+          <tr>
+              <td class="underlined"><span class="dsf dsf_skill10_name"></span></td>
+              <td class="underlined"><span class="dsf dsf_skill10_specialties"></span></td>
+              <td class="underlined"><span class="dsf dsf_skill10_attribute"></span></td>
+              <td class="underlined"><span class="dsf dsf_skill10_roll"></span></td>
+              <td class="underlined"><span class="dsf dsf_skill10_avg"></span></td>
+          </tr>
+          <tr>
+              <td class="underlined"><span class="dsf dsf_skill11_name"></span></td>
+              <td class="underlined"><span class="dsf dsf_skill11_specialties"></span></td>
+              <td class="underlined"><span class="dsf dsf_skill11_attribute"></span></td>
+              <td class="underlined"><span class="dsf dsf_skill11_roll"></span></td>
+              <td class="underlined"><span class="dsf dsf_skill11_avg"></span></td>
+          </tr>
+          <tr>
+              <td class="underlined"><span class="dsf dsf_skill13_name"></span></td>
+              <td class="underlined"><span class="dsf dsf_skill13_specialties"></span></td>
+              <td class="underlined"><span class="dsf dsf_skill13_attribute"></span></td>
+              <td class="underlined"><span class="dsf dsf_skill13_roll"></span></td>
+              <td class="underlined"><span class="dsf dsf_skill13_avg"></span></td>
+          </tr>
+          <tr>
+              <td class="underlined"><span class="dsf dsf_skill14_name"></span></td>
+              <td class="underlined"><span class="dsf dsf_skill14_specialties"></span></td>
+              <td class="underlined"><span class="dsf dsf_skill14_attribute"></span></td>
+              <td class="underlined"><span class="dsf dsf_skill14_roll"></span></td>
+              <td class="underlined"><span class="dsf dsf_skill14_avg"></span></td>
+          </tr>
+          <tr>
+              <td class="underlined"><span class="dsf dsf_skill15_name"></span></td>
+              <td class="underlined"><span class="dsf dsf_skill15_specialties"></span></td>
+              <td class="underlined"><span class="dsf dsf_skill15_attribute"></span></td>
+              <td class="underlined"><span class="dsf dsf_skill15_roll"></span></td>
+              <td class="underlined"><span class="dsf dsf_skill15_avg"></span></td>
+          </tr>
+          <tr>
+              <td class="underlined"><span class="dsf dsf_skill16_name"></span></td>
+              <td class="underlined"><span class="dsf dsf_skill16_specialties"></span></td>
+              <td class="underlined"><span class="dsf dsf_skill16_attribute"></span></td>
+              <td class="underlined"><span class="dsf dsf_skill16_roll"></span></td>
+              <td class="underlined"><span class="dsf dsf_skill16_avg"></span></td>
+          </tr>
+          <tr>
+              <td class="underlined"><span class="dsf dsf_skill17_name"></span></td>
+              <td class="underlined"><span class="dsf dsf_skill17_specialties"></span></td>
+              <td class="underlined"><span class="dsf dsf_skill17_attribute"></span></td>
+              <td class="underlined"><span class="dsf dsf_skill17_roll"></span></td>
+              <td class="underlined"><span class="dsf dsf_skill17_avg"></span></td>
+          </tr>
+          <tr>
+              <td class="underlined"><span class="dsf dsf_skill18_name"></span></td>
+              <td class="underlined"><span class="dsf dsf_skill18_specialties"></span></td>
+              <td class="underlined"><span class="dsf dsf_skill18_attribute"></span></td>
+              <td class="underlined"><span class="dsf dsf_skill18_roll"></span></td>
+              <td class="underlined"><span class="dsf dsf_skill18_avg"></span></td>
+          </tr>
+          <tr>
+              <td class="underlined"><span class="dsf dsf_skill19_name"></span></td>
+              <td class="underlined"><span class="dsf dsf_skill19_specialties"></span></td>
+              <td class="underlined"><span class="dsf dsf_skill19_attribute"></span></td>
+              <td class="underlined"><span class="dsf dsf_skill19_roll"></span></td>
+              <td class="underlined"><span class="dsf dsf_skill19_avg"></span></td>
+          </tr>
+          <tr>
+              <td class="underlined"><span class="dsf dsf_skill20_name"></span></td>
+              <td class="underlined"><span class="dsf dsf_skill20_specialties"></span></td>
+              <td class="underlined"><span class="dsf dsf_skill20_attribute"></span></td>
+              <td class="underlined"><span class="dsf dsf_skill20_roll"></span></td>
+              <td class="underlined"><span class="dsf dsf_skill20_avg"></span></td>
+          </tr>
+          <tr>
+              <td class="underlined"><span class="dsf dsf_skill21_name"></span></td>
+              <td class="underlined"><span class="dsf dsf_skill21_specialties"></span></td>
+              <td class="underlined"><span class="dsf dsf_skill21_attribute"></span></td>
+              <td class="underlined"><span class="dsf dsf_skill21_roll"></span></td>
+              <td class="underlined"><span class="dsf dsf_skill21_avg"></span></td>
+          </tr>
+	  </table>
+      </div>
+    <div class="p2_left_box">
+        <table class="weapons" width="100%">
+            <tr class="blackbg">
+                <td>Weapon</td>
+                <td>Type</td>
+                <td>Wound</td>
+                <td>PR</td>
+                <td>Reach</td>
+                <td>Attack</td>
+                <td>Parry</td>
+            </tr>
+            <tr>
+                <td class="underlined">
+                    <span class="dsf dsf_weapon1"></span>
+                </td>
+                <td class="underlined">
+                    <span class="dsf dsf_weapon1_type"></span>
+                </td>
+                <td class="underlined">
+                    <span class="dsf dsf_weapon1_wound"></span>
+                </td>
+                <td class="underlined">
+                    <span class="dsf dsf_weapon1_pr"></span>
+                </td>
+                <td class="underlined">
+                    <span class="dsf dsf_weapon1_reach"></span>
+                </td>
+                <td class="underlined">
+                    <span class="dsf dsf_weapon1_attack"></span>
+                </td>
+                <td class="underlined">
+                    <span class="dsf dsf_weapon1_parry"></span>
+                </td>
+            </tr>
+            <tr>
+                <td class="underlined">
+                    <span class="dsf dsf_weapon2"></span>
+                </td>
+                <td class="underlined">
+                    <span class="dsf dsf_weapon2_type"></span>
+                </td>
+                <td class="underlined">
+                    <span class="dsf dsf_weapon2_wound"></span>
+                </td>
+                <td class="underlined">
+                    <span class="dsf dsf_weapon2_pr"></span>
+                </td>
+                <td class="underlined">
+                    <span class="dsf dsf_weapon2_reach"></span>
+                </td>
+                <td class="underlined">
+                    <span class="dsf dsf_weapon2_attack"></span>
+                </td>
+                <td class="underlined">
+                    <span class="dsf dsf_weapon2_parry"></span>
+                </td>
+            </tr>
+            <tr>
+                <td class="underlined">
+                    <span class="dsf dsf_weapon3"></span>
+                </td>
+                <td class="underlined">
+                    <span class="dsf dsf_weapon3_type"></span>
+                </td>
+                <td class="underlined">
+                    <span class="dsf dsf_weapon3_wound"></span>
+                </td>
+                <td class="underlined">
+                    <span class="dsf dsf_weapon3_pr"></span>
+                </td>
+                <td class="underlined">
+                    <span class="dsf dsf_weapon3_reach"></span>
+                </td>
+                <td class="underlined">
+                    <span class="dsf dsf_weapon3_attack"></span>
+                </td>
+                <td class="underlined">
+                    <span class="dsf dsf_weapon3_parry"></span>
+                </td>
+            </tr>
+            <tr>
+                <td class="underlined">
+                    <span class="dsf dsf_weapon4"></span>
+                </td>
+                <td class="underlined">
+                    <span class="dsf dsf_weapon4_type"></span>
+                </td>
+                <td class="underlined">
+                    <span class="dsf dsf_weapon4_wound"></span>
+                </td>
+                <td class="underlined">
+                    <span class="dsf dsf_weapon4_pr"></span>
+                </td>
+                <td class="underlined">
+                    <span class="dsf dsf_weapon4_reach"></span>
+                </td>
+                <td class="underlined">
+                    <span class="dsf dsf_weapon4_attack"></span>
+                </td>
+                <td class="underlined">
+                    <span class="dsf dsf_weapon4_parry"></span>
+                </td>
+            </tr>
+            <tr>
+                <td class="underlined">
+                    <span class="dsf dsf_weapon5"></span>
+                </td>
+                <td class="underlined">
+                    <span class="dsf dsf_weapon5_type"></span>
+                </td>
+                <td class="underlined">
+                    <span class="dsf dsf_weapon5_wound"></span>
+                </td>
+                <td class="underlined">
+                    <span class="dsf dsf_weapon5_pr"></span>
+                </td>
+                <td class="underlined">
+                    <span class="dsf dsf_weapon5_reach"></span>
+                </td>
+                <td class="underlined">
+                    <span class="dsf dsf_weapon5_attack"></span>
+                </td>
+                <td class="underlined">
+                    <span class="dsf dsf_weapon5_parry"></span>
+                </td>
+            </tr>
+            <tr>
+                <td class="underlined">
+                    <span class="dsf dsf_weapon6"></span>
+                </td>
+                <td class="underlined">
+                    <span class="dsf dsf_weapon6_type"></span>
+                </td>
+                <td class="underlined">
+                    <span class="dsf dsf_weapon6_wound"></span>
+                </td>
+                <td class="underlined">
+                    <span class="dsf dsf_weapon6_pr"></span>
+                </td>
+                <td class="underlined">
+                    <span class="dsf dsf_weapon6_reach"></span>
+                </td>
+                <td class="underlined">
+                    <span class="dsf dsf_weapon6_attack"></span>
+                </td>
+                <td class="underlined">
+                    <span class="dsf dsf_weapon6_parry"></span>
+                </td>
+            </tr>
+        </table>
+        </div>
+        <div class="armor">
+            <table width="100%">
+                <tr>
+                    <td class="blackbg">Armor</td>
+                    <td class="blackbg">AR</td>
+                    <td class="blackbg">Location</td>
+                </tr>
+                <tr>
+                    <td class="underlined">
+                        <span class="dsf dsf_armor_helment"></span>
+                    </td>
+                    <td class="underlined">
+                        <span class="dsf dsf_armor_helmet_ar"></span>
+                    </td>
+                    <td>Helment</td>
+                </tr>
+                <tr>
+                    <td class="underlined">
+                        <span class="dsf dsf_armor_bracers"></span>
+                    </td>
+                    <td class="underlined">
+                        <span class="dsf dsf_armor_bracers_ar"></span>
+                    </td>
+                    <td>Bracers</td>
+                </tr>
+                <tr>
+                    <td class="underlined">
+                        <span class="dsf dsf_armor_cuirass"></span>
+                    </td>
+                    <td class="underlined">
+                        <span class="dsf dsf_armor_cuirass_ar"></span>
+                    </td>
+                    <td>Cuirass</td>
+                </tr>
+                <tr>
+                    <td class="underlined">
+                        <span class="dsf dsf_armor_greaves"></span>
+                    </td>
+                    <td class="underlined">
+                        <span class="dsf dsf_armor_greaves_ar"></span>
+                    </td>
+                    <td>Greaves</td>
+                </tr>
+            </table>
+            <table width="100%">
+                <tr>
+                    <th>Toughness</th>
+                    <td class="box">
+                        <span class="dsf dsf_toughness"></span>
+                    </td>
+                    <th>Reflex</th>
+                    <td class="box">
+                        <span class="dsf dsf_reflex"></span>
+                    </td>
+                </tr>
+                <tr>
+                    <th>Dodge</th>
+                    <td class="box">
+                        <span class="dsf dsf_dodge"></span>
+                    </td>
+                    <th>Block</th>
+                    <td class="box">
+                        <span class="dsf dsf_block"></span>
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <div class="equipment">
+            <table width="100%">
+                <tr>
+                    <td colspan="2" class="blackbg">Equipment</td>
+                </tr>
+                <tr>
+                    <td class="underlined">
+                        <span class="dsf dsf_equipment_1"></span>
+                    </td>
+                    <td class="underlined">
+                        <span class="dsf dsf_equipment_2"></span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="underlined">
+                        <span class="dsf dsf_equipment_3"></span>
+                    </td>
+                    <td class="underlined">
+                        <span class="dsf dsf_equipment_4"></span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="underlined">
+                        <span class="dsf dsf_equipment_5"></span>
+                    </td>
+                    <td class="underlined">
+                        <span class="dsf dsf_equipment_6"></span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="underlined">
+                        <span class="dsf dsf_equipment_7"></span>
+                    </td>
+                    <td class="underlined">
+                        <span class="dsf dsf_equipment_8"></span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="underlined">
+                        <span class="dsf dsf_equipment_9"></span>
+                    </td>
+                    <td class="underlined">
+                        <span class="dsf dsf_equipment_10"></span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="underlined">
+                        <span class="dsf dsf_equipment_11"></span>
+                    </td>
+                    <td class="underlined">
+                        <span class="dsf dsf_equipment_12"></span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="underlined">
+                        <span class="dsf dsf_equipment_13"></span>
+                    </td>
+                    <td class="underlined">
+                        <span class="dsf dsf_equipment_14"></span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="underlined">
+                        <span class="dsf dsf_equipment_15"></span>
+                    </td>
+                    <td class="underlined">
+                        <span class="dsf dsf_equipment_16"></span>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+      <!-- End HTML Template - Don't copy anything below here into the template! -->
+    </div> <!-- ds_fantasydice -->
+  </div> <!-- dynamic_sheet_container -->
+  <br/><br/>
+
+  <button id="character-save-button">Save</button>
+  <br/>
+  <p>
+    Right here is a hidden &lt;div&gt; that holds the data values that will be saved to the server. Click the save button and then examine the DOM (using Firebug) to see what will be sent.
+  </p>
+  <div id="dynamic_sheet_values" style="display:none;"></div>
+</body>
+</html>
